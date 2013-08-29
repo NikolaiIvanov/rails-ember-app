@@ -14,6 +14,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :git => 'https://github.com/anjlab/bootstrap-rails.git', :branch => '3.0.0'
+  gem 'ember-bootstrap-rails',  '~> 0.0.2',     github: 'kristianmandrup/ember-bootstrap-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -40,3 +41,7 @@ gem 'jquery-rails'
 gem 'strong_parameters'
 
 gem 'unicorn'
+
+gem 'ember-rails'
+gem 'ember-source', '1.0.0.rc7'
+gem 'handlebars-source', '1.0.12'
