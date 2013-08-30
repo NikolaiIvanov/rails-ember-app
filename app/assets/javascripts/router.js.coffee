@@ -3,3 +3,4 @@
 RailsEmberApp.Router.map ()->
   # @resource('posts')
 
+  @resource 'achievements'
