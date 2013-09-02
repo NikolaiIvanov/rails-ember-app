@@ -3,6 +3,32 @@ RailsEmberApp.AchievementsController = Ember.ArrayController.extend
   sortProperties: [ 'achievedAt' ]
   sortAscending: false
 
+  isValid: (->
+    #default condition of error message and isValid
+    msg = ""
+    isValid = true
+
+    str = @get('newAchievement')
+
+    unless str
+      isValid = false
+      msg += "Field can't be blank."
+
+    day     = /\bd\d\d\b/.exec(str)
+    if day
+      if parseInt(day[0].split('d')[1]) > 31
+        isValid = false
+        msg += "Invalid day. "
+
+    month   = /\bm\d\d\b/.exec(str)
+    if month
+      if parseInt(month[0].split('m')[1]) > 12
+        isValid = false
+        msg += "Invalid month. "
+
+    @set('errorMessage', msg)
+  ).property('newAchievement')
+
   addAchievement: ->
     data = @parseInput @get('newAchievement')
     RailsEmberApp.Achievement.createRecord

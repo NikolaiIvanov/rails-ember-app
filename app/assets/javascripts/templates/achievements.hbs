@@ -5,9 +5,12 @@
   <div class="col-md-8">
     <form class="form-inline" role="form">
       <legend>Add new achievement</legend>
-      <div class="col-lg-5">
+      {{#unless isValid}}
+      <div class="alert alert-danger">{{errorMessage}}</div>
+      {{/unless}}
+      <div {{bindAttr class=":col-lg-5 :form-group isValid::has-error"}}>
         <!--{{view Ember.TextField valueBinding=someValue}}-->
-        {{input type=text value=newAchievement class="form-control" placeholder="Add new achivenment?"}}
+        {{input type=text value=newAchievement class="form-control" placeholder="Add new achivenment?"}}        
       </div>
       <button type="submit" class="btn btn-default" {{action addAchievement}}>Yaaarr!</button>
     </form>
