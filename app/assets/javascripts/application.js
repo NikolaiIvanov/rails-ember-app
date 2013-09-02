@@ -17,7 +17,6 @@
 //= require ember-data
 //= require_self
 //= require rails_ember_app
-//= require ember-bootstrap/all
 //= require twitter/bootstrap
 
 // for more details see: http://emberjs.com/guides/application/
