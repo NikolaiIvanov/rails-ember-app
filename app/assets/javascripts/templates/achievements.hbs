@@ -3,20 +3,22 @@
     <p class="lead"><span class="glyphicon glyphicon-cog"></span> Lists</p>
   </div>
   <div class="col-md-8">
-    <form role="form">
-      <legend>This is form</legend>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
+    <form class="form-inline" role="form">
+      <legend>Add new achievement</legend>
+      <div class="col-lg-5">
         <!--{{view Ember.TextField valueBinding=someValue}}-->
-        {{input type=text}}
+        {{input type=text value=newAchievement class="form-control" placeholder="Add new achivenment?"}}
       </div>
-      <button type="submit" class="btn btn-default">Yaaarr!</button>
-    </form> 
-    <h3>Achievements</h3>
-    <hr>
+      <button type="submit" class="btn btn-default" {{action addAchievement}}>Yaaarr!</button>
+    </form>
 
-    <ul class="achievements">
+    <hr>
+    <h3>Achievements</h3>
+    <ul class="list-group achievements">
       {{#each controller}}
+        <li class="list-group-item">
+          <span class="badge">{{ date achievedAt}} </span> {{title}}
+        </li>
       {{else}}
       <li>
         <img src="/assets/cat_hungry.png">
