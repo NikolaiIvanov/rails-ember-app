@@ -8,10 +8,20 @@ RailsEmberApp.AchievementsNewController = Ember.Controller.extend
     true
   ).property('newAchievement')
 
+  #Content null by default
+  content: null
+
+  #Input and error by default is empty string
+  input: ""
+  errors: ""
+
   addAchievement: ->
-    data = @parseInput @get('newAchievement')
-    RailsEmberApp.Achievement.createRecord
-      title: data['title']
-      achievedAt: data['achievedAt']
-    @set('newAchievement', '')
-    @get('store').commit()
+    achievement = @get('content')
+
+    if achievement
+      achievement.set('input', @get('input'))
+    else
+      achievement = RailsEmberApp.Achievement.createRecord({input: @get('input')})
+
+    achievement.save()
+    @set('content', achievement)
