@@ -3,4 +3,5 @@
 RailsEmberApp.Router.map (match)->
   # @resource('posts')
 
-  @resource 'achievements'
+  @resource 'achievements', ->
+    @route 'new'

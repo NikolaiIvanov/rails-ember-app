@@ -1,0 +1,11 @@
+<form class="form-inline">
+  <legend>Add new achievement</legend>
+  {{#unless isValid}}
+    <div class="alert alert-danger">{{errorMessage}}</div>
+  {{/unless}}
+  <div {{bindAttr class=":col-lg-5 :form-group isValid::has-error"}}>
+    {{input type=text value=newAchievement class="form-control" placeholder="Add new achivenment?"}}
+  </div>
+  <button type="submit" class="btn btn-default" {{action addAchievement}}>Yaaarr!</button>
+</form>
+<hr>
