@@ -14,7 +14,7 @@ RailsEmberApp.AchievementsController = Ember.ArrayController.extend
       isValid = false
       msg += "Field can't be blank."
 
-    day     = /\bd\d\d\b/.exec(str)
+    day   = /\bd\d\d\b/.exec(str)
     if day
       if parseInt(day[0].split('d')[1]) > 31
         isValid = false
@@ -27,6 +27,7 @@ RailsEmberApp.AchievementsController = Ember.ArrayController.extend
         msg += "Invalid month. "
 
     @set('errorMessage', msg)
+    isValid
   ).property('newAchievement')
 
   addAchievement: ->
